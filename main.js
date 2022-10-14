@@ -4,6 +4,7 @@ const fileInput = document.querySelector("#uploader")
 const ffmpeg = createFFmpeg({log: true})
 const transcode = async ({ target: { files } }) => {
   if(crossOriginIsolated){
+    console.log("started it")
     const { name } = files[0];
     await ffmpeg.load();
     ffmpeg.FS('writeFile', name, await fetchFile(files[0]));
